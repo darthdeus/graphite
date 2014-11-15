@@ -3,17 +3,24 @@
 
 #include <vector>
 
+class vertex {
+  public:
+    int x;
+}
+
 class graph {
 
  public:
-  using vertex_type = int;
-  using adjacency_list = std::vector<std::vector<vetex_type>>;
+  // using vertex_type = int;
 
-  void add_vertex(vetex_type n);
-  void connect(vertex_type v1, vertex_type v2);
-  bool is_connected(vertex_type v1, vertex_type v2);
+  using adjacency_list = std::vector<std::vector<vertex>>;
+
+  void add_vertex(int n);
+  void connect(int v1, int v2);
+  bool is_connected(int v1, int v2);
 
  private:
+  adjacency_list list;
 };
 
-#endif GURAD_GRAPH
+#endif

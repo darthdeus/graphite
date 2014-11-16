@@ -3,10 +3,14 @@
 #include "graph.hpp"
 
 void graph::add_vertex(int v) {
-  if (std::find(begin(list), end(list), v) == end(list)) {
-    list.emplace_back();
-    auto v = list.back();
-    v.emplace_back(v);
+  auto p = [v](const vertex& vert) {
+    return vert.value == v;
+  };
+
+  auto found = std::find_if(begin(list), end(list), p);
+
+  if (found == end(list)) {
+    list.emplace_back(v);
   } else {
     std::cout << "already there" << std::endl;
   }

@@ -5,15 +5,18 @@
 
 class vertex {
   public:
-    int x;
-}
+    int value;
+    std::vector<vertex*> edges;
+
+    vertex(int v): value(v) {};
+};
 
 class graph {
 
  public:
   // using vertex_type = int;
 
-  using adjacency_list = std::vector<std::vector<vertex>>;
+  using adjacency_list = std::vector<vertex>;
 
   void add_vertex(int n);
   void connect(int v1, int v2);

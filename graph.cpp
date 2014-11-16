@@ -6,14 +6,14 @@ void vertex_not_found(const char* f, int vn1, int vn2) {
   std::cout << f << ": vertex not found " << vn1 << " --> " << vn2 << std::endl;
 }
 
-const vertex* graph::add_vertex(int v) {
+const vertex& graph::add_vertex(int v) {
   auto found = find(v);
 
   if (found) {
-    return found;
+    return *found;
   } else {
     list.emplace_back(v);
-    return &list.back();
+    return list.back();
   }
 }
 

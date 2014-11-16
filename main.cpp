@@ -1,4 +1,5 @@
 #include <iostream>
+#include "bfs.hpp"
 #include "graph.hpp"
 
 void check(const graph& g, int v1, int v2) {
@@ -9,9 +10,9 @@ void check(const graph& g, int v1, int v2) {
 int main() {
   graph g;
 
-  g.add_vertex(1);
-  g.add_vertex(2);
-  g.add_vertex(3);
+  auto v1 = g.add_vertex(1);
+  auto v2 = g.add_vertex(2);
+  auto v3 = g.add_vertex(3);
 
   g.connect(1, 2);
   g.connect(2, 3);
@@ -20,6 +21,8 @@ int main() {
   check(g, 2, 3);
   check(g, 2, 1);
   check(g, 1, 3);
+
+  std::cout << bfs(v1, v2) << std::endl;
 
   return 0;
 }

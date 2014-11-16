@@ -9,7 +9,7 @@ class graph {
  public:
   using adjacency_list = std::vector<vertex>;
 
-  const vertex* add_vertex(int n);
+  const vertex& add_vertex(int n);
   void connect(int v1, int v2);
   bool is_connected(int v1, int v2) const;
 

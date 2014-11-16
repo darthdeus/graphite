@@ -2,14 +2,7 @@
 #define GUARD_GRAPH
 
 #include <vector>
-
-class vertex {
-  public:
-    int value;
-    std::vector<vertex*> edges;
-
-    vertex(int v): value(v) {};
-};
+#include "vertex.hpp"
 
 class graph {
 
@@ -27,3 +20,4 @@ class graph {
 };
 
 #endif
+

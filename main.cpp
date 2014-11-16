@@ -7,6 +7,8 @@ void check(const graph& g, int v1, int v2) {
             << std::endl;
 }
 
+#include <vector>
+
 int main() {
   graph g;
 
@@ -17,12 +19,12 @@ int main() {
   g.connect(1, 2);
   g.connect(2, 3);
 
-  check(g, 1, 2);
-  check(g, 2, 3);
-  check(g, 2, 1);
-  check(g, 1, 3);
+  // check(g, 1, 2);
+  // check(g, 2, 3);
+  // check(g, 2, 1);
+  // check(g, 1, 3);
 
-  std::cout << bfs(v1, v2) << std::endl;
+  std::cout << bfs(*v1, *v2) << std::endl;
 
   return 0;
 }

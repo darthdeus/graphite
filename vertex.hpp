@@ -5,6 +5,8 @@
 
 class vertex {
   public:
+    vertex(const vertex& v) = delete;
+
     int value;
     // TODO - Make this less stupid
     std::vector<vertex*> edges;

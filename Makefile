@@ -3,3 +3,4 @@ FILES=main.cpp graph.cpp vertex.cpp
 
 default:
 	 $(CC) $(FILES) -o bin/main
+	 ./bin/main

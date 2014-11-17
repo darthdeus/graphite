@@ -23,6 +23,7 @@ class vertex {
 
   vertex_color color = vertex_color::white;
 
+  bool visited() { return color != vertex_color::white; }
   void color_white() { color = vertex_color::white; }
   void color_gray() { color = vertex_color::gray; }
   void color_black() { color = vertex_color::black; }

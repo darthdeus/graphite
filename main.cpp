@@ -24,7 +24,7 @@ int main() {
   // check(g, 2, 1);
   // check(g, 1, 3);
 
-  std::cout << bfs(*v1, *v2) << std::endl;
+  std::cout << bfs(g, v1, v2) << std::endl;
 
   return 0;
 }

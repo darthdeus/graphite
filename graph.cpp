@@ -3,7 +3,7 @@
 #include <iostream>
 #include "graph.hpp"
 
-void vertex_not_found(const char* f, int vn1, int vn2) {
+static void vertex_not_found(const char* f, int vn1, int vn2) {
   std::cout << f << ": vertex not found " << vn1 << " --> " << vn2 << std::endl;
 }
 
@@ -47,7 +47,7 @@ bool graph::is_connected(int vn1, int vn2) const {
 }
 
 vertex* graph::find(int v) const {
-  auto p = [v](auto& vert) { return vert->value == v; };
+  auto p = [v](auto & vert) { return vert->value == v; };
 
   auto found = std::find_if(begin(list), end(list), p);
 
@@ -58,8 +58,3 @@ vertex* graph::find(int v) const {
   }
 }
 
-void graph::color_white() {
-  for (auto& v : list) {
-    v->color_white();
-  }
-}

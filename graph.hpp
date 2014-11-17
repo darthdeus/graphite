@@ -14,12 +14,9 @@ class graph {
   void connect(int v1, int v2);
   bool is_connected(int v1, int v2) const;
 
-  // Color all vertices white
-  void color_white();
-
- private:
   adjacency_list list;
 
+ private:
   // Try to find a vertex in the graph, otherwise return nullptr.
   vertex* find(int n) const;
 };

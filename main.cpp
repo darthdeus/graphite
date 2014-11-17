@@ -3,7 +3,7 @@
 #include "bfs.hpp"
 #include "graph.hpp"
 
-void check(const graph& g, int v1, int v2) {
+static void check(const graph& g, int v1, int v2) {
   std::cout << v1 << " --> " << v2 << ": " << g.is_connected(v1, v2)
             << std::endl;
 }

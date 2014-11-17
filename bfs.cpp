@@ -32,8 +32,10 @@ int bfs(graph& g, vertex* start, vertex* end) {
     }
 
     for (auto neighbour : v->edges) {
-      cout << "    pushing neighbour " << neighbour->value << endl;
-      queue.push(neighbour);
+      if (!neighbour->visited()) {
+        cout << "    pushing neighbour " << neighbour->value << endl;
+        queue.push(neighbour);
+      }
     }
 
     v->color_gray();

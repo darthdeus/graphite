@@ -6,23 +6,28 @@
 using std::cout;
 using std::endl;
 
-int bfs(const vertex& start, const vertex& end) {
-  std::queue<const vertex*> queue;
+int bfs(graph& g, vertex* start, vertex* end) {
+  g.color_white();
 
-  cout << "BFS start " << start.value << endl;
+  std::queue<vertex*> queue;
 
-  for (auto v : start.edges) {
+  cout << "BFS start " << start->value << endl;
+
+  for (auto v : start->edges) {
     cout << "pushing " << v->value << endl;
     queue.push(v);
   }
+
+  start->color_gray();
 
   while (!queue.empty()) {
     auto v = queue.front();
     queue.pop();
 
-    cout << "processing " << v->value << endl;
+    if (v->color == vertex_color::gray) continue;
 
-    if (v == &end) {
+    cout << "processing " << v->value << endl;
+    if (v == end) {
       return v->value;
     }
 
@@ -30,6 +35,8 @@ int bfs(const vertex& start, const vertex& end) {
       cout << "    pushing neighbour " << neighbour->value << endl;
       queue.push(neighbour);
     }
+
+    v->color_gray();
   }
 
   return -1;

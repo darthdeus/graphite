@@ -58,3 +58,8 @@ vertex* graph::find(int v) const {
   }
 }
 
+void graph::color_white() {
+  for (auto& v : list) {
+    v->color_white();
+  }
+}

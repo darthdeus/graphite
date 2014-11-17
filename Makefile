@@ -1,4 +1,4 @@
-CC=clang++ -std=c++11
+CC=clang++ -std=c++1y -g
 FILES=graph.cpp vertex.cpp bfs.cpp main.cpp
 
 default:

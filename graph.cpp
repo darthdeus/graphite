@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <memory>
 #include <iostream>
 #include "graph.hpp"
 
@@ -12,8 +13,8 @@ vertex* graph::add_vertex(int v) {
   if (found) {
     return &*found;
   } else {
-    list.emplace_back(v);
-    return &list.back();
+    list.push_back(std::make_unique<vertex>(v));
+    return list.back().get();
   }
 }
 

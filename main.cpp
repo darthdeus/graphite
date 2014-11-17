@@ -31,7 +31,10 @@ int main() {
   // check(g, 2, 1);
   // check(g, 1, 3);
 
-  std::cout << bfs(g, v1, v6) << std::endl;
+  bfs b(g, v1, v6);
+  for (int i = 0; i < 10; i++) {
+    std::cout << b.step() << std::endl;
+  }
 
   return 0;
 }

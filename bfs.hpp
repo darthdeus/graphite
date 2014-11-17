@@ -3,7 +3,18 @@
 
 #include "graph.hpp"
 #include "vertex.hpp"
+#include <queue>
 
-int bfs(graph& g, vertex* start, vertex* end);
+class bfs {
+ public:
+  bfs(graph& g, vertex* start, vertex* end);
+
+  std::queue<vertex*> queue;
+  vertex* start;
+  vertex* end;
+  graph& g;
+
+  int step();
+};
 
 #endif

@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "graph.hpp"
+#include "bfs.hpp"
 
 using std::cout;
 using std::endl;
@@ -29,12 +30,10 @@ static bool is_white(vertex* v) { return ((color*)v->metadata) == &white; }
 static bool is_gray(vertex* v) { return ((color*)v->metadata) == &gray; }
 static bool is_black(vertex* v) { return ((color*)v->metadata) == &black; }
 
-int bfs(graph& g, vertex* start, vertex* end) {
+bfs::bfs(graph& g, vertex* start, vertex* end) : start(start), end(end), g(g) {
   for (auto& v : g.list) {
     color_white(v.get());
   }
-
-  std::queue<vertex*> queue;
 
   cout << "BFS start " << start->value << endl;
 
@@ -45,12 +44,14 @@ int bfs(graph& g, vertex* start, vertex* end) {
   }
 
   color_black(start);
+}
 
-  while (!queue.empty()) {
+int bfs::step() {
+  if (!queue.empty()) {
     auto v = queue.front();
     queue.pop();
 
-    if (is_black(v)) continue;
+    if (is_black(v)) return -1;
 
     cout << "processing " << v->value << endl;
     if (v == end) {
@@ -68,7 +69,10 @@ int bfs(graph& g, vertex* start, vertex* end) {
     }
 
     color_gray(v);
-  }
 
-  return -1;
+    return 0;
+  } else {
+    return -2;
+  }
 }
+

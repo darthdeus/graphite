@@ -25,8 +25,9 @@ void color_white(vertex* v) { v->metadata = &white; }
 void color_gray(vertex* v) { v->metadata = &gray; }
 void color_black(vertex* v) { v->metadata = &black; }
 
-bool is_black(vertex* v) { return ((color*)v->metadata) == &black; }
+bool is_white(vertex* v) { return ((color*)v->metadata) == &white; }
 bool is_gray(vertex* v) { return ((color*)v->metadata) == &gray; }
+bool is_black(vertex* v) { return ((color*)v->metadata) == &black; }
 
 int bfs(graph& g, vertex* start, vertex* end) {
   for (auto& v : g.list) {
@@ -57,7 +58,7 @@ int bfs(graph& g, vertex* start, vertex* end) {
     }
 
     for (auto neighbour : v->edges) {
-      if (!is_gray(neighbour)) {
+      if (is_white(neighbour)) {
         cout << "    pushing neighbour " << neighbour->value << endl;
         queue.push(neighbour);
         color_gray(neighbour);

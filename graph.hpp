@@ -16,6 +16,7 @@ class graph {
 
   adjacency_list list;
 
+  void clear_metadata();
  private:
   // Try to find a vertex in the graph, otherwise return nullptr.
   vertex* find(int n) const;

@@ -43,7 +43,6 @@ bool graph::is_connected(int vn1, int vn2) const {
   }
 
   auto p = [v2](edge& e) { return e.v == v2; };
-
   auto found = std::find_if(begin(v1->edges), end(v1->edges), p);
 
   return found != end(v1->edges);
@@ -51,7 +50,6 @@ bool graph::is_connected(int vn1, int vn2) const {
 
 vertex* graph::find(int v) const {
   auto p = [v](auto& vert) { return vert->value == v; };
-
   auto found = std::find_if(begin(list), end(list), p);
 
   if (found == end(list)) {
@@ -61,3 +59,9 @@ vertex* graph::find(int v) const {
   }
 }
 
+
+void graph::clear_metadata() {
+  for (auto& v : list) {
+    v->metadata = nullptr;
+  }
+}

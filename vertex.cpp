@@ -9,6 +9,5 @@ std::ostream& operator<<(std::ostream& os, const vertex& v) {
     os << e.v->value << " ";
   }
 
-  os << std::endl;
   return os;
 }

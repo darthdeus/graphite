@@ -28,7 +28,7 @@ int main() {
   g.connect(5, 6);
 
   store s;
-  s.save(g, "output.txt");
+  s.save(g, "tmp/output.txt");
 
 
   // check(g, 1, 2);

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include "edge.hpp"
 
 class vertex {
  public:
@@ -13,7 +14,7 @@ class vertex {
 
   int value;
 
-  std::vector<vertex*> edges;  // TODO - Make this less stupid
+  std::vector<edge> edges;
 
   void* metadata;
 };

@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "bfs.hpp"
+#include "store.hpp"
 #include "graph.hpp"
 
 static void check(const graph& g, int v1, int v2) {
@@ -25,6 +26,10 @@ int main() {
   g.connect(3, 4);
   g.connect(4, 6);
   g.connect(5, 6);
+
+  store s;
+  s.save(g, "output.txt");
+
 
   // check(g, 1, 2);
   // check(g, 2, 3);

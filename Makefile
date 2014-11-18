@@ -1,5 +1,5 @@
 CC=clang++ -std=c++1y -g
-FILES=graph.cpp vertex.cpp bfs.cpp main.cpp
+FILES=graph.cpp vertex.cpp bfs.cpp main.cpp edge.cpp
 
 default:
 	 $(CC) $(FILES) -o bin/main

@@ -2,6 +2,7 @@
 #include <memory>
 #include <iostream>
 #include "graph.hpp"
+#include "edge.hpp"
 
 static void vertex_not_found(const char* f, int vn1, int vn2) {
   std::cout << f << ": vertex not found " << vn1 << " --> " << vn2 << std::endl;
@@ -27,8 +28,8 @@ void graph::connect(int vn1, int vn2) {
     vertex_not_found("graph::connect", vn1, vn2);
     return;
   } else {
-    v1->edges.push_back(v2);
-    v2->edges.push_back(v1);
+    v1->edges.emplace_back(v2);
+    v2->edges.emplace_back(v1);
   }
 }
 
@@ -41,13 +42,15 @@ bool graph::is_connected(int vn1, int vn2) const {
     return false;
   }
 
-  auto found = std::find(begin(v1->edges), end(v1->edges), v2);
+  auto p = [v2](edge& e) { return e.v == v2; };
+
+  auto found = std::find_if(begin(v1->edges), end(v1->edges), p);
 
   return found != end(v1->edges);
 }
 
 vertex* graph::find(int v) const {
-  auto p = [v](auto & vert) { return vert->value == v; };
+  auto p = [v](auto& vert) { return vert->value == v; };
 
   auto found = std::find_if(begin(list), end(list), p);
 

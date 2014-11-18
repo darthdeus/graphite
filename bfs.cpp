@@ -7,11 +7,7 @@
 using std::cout;
 using std::endl;
 
-enum class vertex_color {
-  white,
-  gray,
-  black
-};
+enum class vertex_color { white, gray, black };
 
 struct color {
   vertex_color c;
@@ -27,10 +23,10 @@ static void color_gray(vertex* v) { v->metadata = &gray; }
 static void color_black(vertex* v) { v->metadata = &black; }
 
 static bool is_white(vertex* v) { return ((color*)v->metadata) == &white; }
-static bool is_gray(vertex* v) { return ((color*)v->metadata) == &gray; }
+// static bool is_gray(vertex* v) { return ((color*)v->metadata) == &gray; }
 static bool is_black(vertex* v) { return ((color*)v->metadata) == &black; }
 
-bfs::bfs(graph& g, vertex* start, vertex* end) : start(start), end(end), g(g) {
+bfs::bfs(graph& g, vertex* start, vertex* end) : g(g), start(start), end(end) {
   for (auto& v : g.list) {
     color_white(v.get());
   }
@@ -76,7 +72,7 @@ int bfs::step() {
 
     return 0;
   } else {
+    g.clear_metadata();
     return -2;
   }
 }
-

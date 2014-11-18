@@ -10,11 +10,13 @@ class bfs {
   bfs(graph& g, vertex* start, vertex* end);
 
   std::queue<vertex*> queue;
+  graph& g;
   vertex* start;
   vertex* end;
-  graph& g;
 
   int step();
+
+ private:
 };
 
 #endif

@@ -2,6 +2,7 @@
 #define GUARD_VERTEX
 
 #include <iostream>
+#include <ostream>
 #include <vector>
 #include "edge.hpp"
 
@@ -17,7 +18,10 @@ class vertex {
   std::vector<edge> edges;
 
   void* metadata;
+
 };
+
+std::ostream& operator<<(std::ostream& os, const vertex& v);
 
 #endif
 

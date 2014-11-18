@@ -9,6 +9,13 @@ using std::endl;
 
 enum class vertex_color { white, gray, black };
 
+class graph_events {
+  public:
+    void vertex_selected(vertex* v);
+    void vertex_colored(vertex* v, int color);
+    void edge_changed(edge* e);
+};
+
 struct color {
   vertex_color c;
   explicit color(vertex_color c) : c(c) {}
